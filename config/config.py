@@ -36,4 +36,4 @@ Occupation/Field: {occupation}
 
 === CITATIONS ===
 {citations}
-""" 
+"""
