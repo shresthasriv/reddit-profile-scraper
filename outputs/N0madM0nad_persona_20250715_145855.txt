@@ -1,0 +1,48 @@
+REDDIT USER PERSONA ANALYSIS
+Generated on: 2025-07-15 14:58:55
+Username: N0madM0nad
+================================================================================
+
+
+USER PERSONA ANALYSIS
+
+=== BASIC INFORMATION ===
+Age Range: 30s to 40s, based on 10 years of professional experience and involvement in the DnB scene since early 2000s
+Location: UK, based on multiple references to UK-specific topics and settled status as an EU citizen
+Occupation/Field: Software Engineer (Python, C++, TypeScript), with a focus on web scraping and personal projects
+
+=== PERSONALITY TRAITS ===
+Analytical, independent, and somewhat cynical, with a strong inclination towards problem-solving and skepticism towards corporate environments
+
+=== INTERESTS & HOBBIES ===
+Web scraping, software development (Python, C++, TypeScript), Drum and Bass (DnB) music production, political and social commentary
+
+=== COMMUNICATION STYLE ===
+Direct, technical, and occasionally sarcastic, with a tendency to engage in debates and provide detailed explanations
+
+=== VALUES & BELIEFS ===
+Independence, creativity, skepticism towards corporate culture, and a belief in personal projects over traditional employment
+
+=== BEHAVIORAL PATTERNS ===
+Active in technical subreddits, frequently engages in discussions about software development and job market frustrations, shares personal projects and opinions on social issues
+
+=== GOALS & MOTIVATIONS ===
+To share knowledge, seek validation for personal projects, escape corporate employment through independent ventures, and engage with like-minded individuals in tech and music communities
+
+=== CITATIONS ===
+1. [Occupation] - POST in r/recruitinghell: "I am a Python SWE based in the UK with about 10 YOE."
+2. [Location] - COMMENT in r/AskUK: "The fun part about Brexit is that us EU citizens (with settled status) are the only ones who haven't been affected."
+3. [Personality traits] - COMMENT in r/cscareerquestions: "I am suggesting that in the current climate and in the near future it makes more sense to invest in your own projects since no ..."
+4. [Interests] - POST in r/DnB: "I have been involved in the dnb scene since early 2000's and been producing for longer than I care to admit."
+5. [Communication style] - COMMENT in r/cscareerquestions: "You're confusing Open Source contributions with personal for profit projects perhaps?"
+6. [Values] - COMMENT in r/cscareerquestions: "I was suggesting to build something for profit to escape the corporate hell, not an Open Source project."
+7. [Behavior patterns] - POST in r/webscraping: "Hello everyone, I’d like to introduce you to my scraping and data-gathering library, called DataService."
+8. [Goals] - COMMENT in r/cscareerquestions: "I am suggesting that in the current climate and in the near future it makes more sense to invest in your own projects since no ..."
+
+=== ACTIVITY STATISTICS ===
+Total Posts: 4
+Total Comments: 96
+Total Words: 3938
+Average Words per Content: 39.4
+Total Karma: 359
+Top Subreddits: webscraping, DnB, recruitinghell, cscareerquestions, LinkedInLunatics

@@ -1,0 +1,49 @@
+REDDIT USER PERSONA ANALYSIS
+Generated on: 2025-07-15 16:55:33
+Username: kojied
+================================================================================
+
+
+USER PERSONA ANALYSIS
+
+=== BASIC INFORMATION ===
+Age Range: 25-35, based on references to being a millennial and discussions about H1B visas which are typically for young professionals
+Location: New York City, based on frequent activity in r/AskNYC and r/newyorkcity
+Occupation/Field: Likely in a professional or tech-related field, given discussions about H1B visas and interest in AI/ChatGPT
+
+=== PERSONALITY TRAITS ===
+Analytical and detail-oriented (evidenced by strategic game discussions), curious (engages in diverse topics), and somewhat opinionated (posts in r/Conservative and r/nba)
+
+=== INTERESTS & HOBBIES ===
+Strategy games (Civ5, ManorLords), NBA (specifically the Warriors), AI and technology (ChatGPT, NFTs), food and dining in NYC, Japanese culture (OnePiece references)
+
+=== COMMUNICATION STYLE ===
+Informal yet detailed, often providing strategic advice or nuanced opinions
+
+=== VALUES & BELIEFS ===
+Values strategic thinking and efficiency (game comments), appreciates cultural diversity (references to Japanese culture), and seems to value personal freedom (discussion on TikTok ban)
+
+=== BEHAVIORAL PATTERNS ===
+Engages heavily in strategy game subreddits, provides detailed advice, and participates in diverse discussions from technology to food
+
+=== GOALS & MOTIVATIONS ===
+To share knowledge, engage in strategic discussions, and explore diverse topics ranging from technology to culture
+
+=== CITATIONS ===
+1. [Age range] - COMMENT in r/r/AskReddit: "Millenials have less kids, so they have more time and money to spend on themselves."
+2. [Location] - POST in r/r/newyorkcity: "There's this bar that I frequent a few blocks away from my house."
+3. [Occupation] - POST in r/r/AskReddit: "H1B holders, what are your thoughts on the narrative that you are being exploited?"
+4. [Personality traits] - COMMENT in r/r/ManorLords: "Sorry to hear that man, in the future you may want to have multiple granaries, one close to your berries/deer/fish and one for your veggies/apples/honey."
+5. [Interests] - COMMENT in r/r/ChatGPT: "Incredible stuff! How did you maintain character consistency?"
+6. [Communication style] - COMMENT in r/r/ManorLords: "You have to kill the bandit units, or donate crop yields though the manor (tithing, different from taxation)."
+7. [Values] - POST in r/r/Conservative: "Are you guys for/against banning Tiktok in the US?"
+8. [Behavior patterns] - COMMENT in r/r/ManorLords: "I do too but I rarely finish a game haha. Too little late game content"
+9. [Goals] - COMMENT in r/r/ChatGPT: "Any tips for photo realism would be appreciated"
+
+=== ACTIVITY STATISTICS ===
+Total Posts: 5
+Total Comments: 95
+Total Words: 4074
+Average Words per Content: 40.7
+Total Karma: 1250
+Top Subreddits: AskReddit, civ5, AskNYC, ManorLords, warriors
