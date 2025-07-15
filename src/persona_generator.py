@@ -2,8 +2,12 @@ import openai
 import json
 import logging
 from typing import Dict, List
-from config.config import (DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL,
-                           DEEPSEEK_MODEL, PERSONA_TEMPLATE)
+import google.generativeai as genai
+import anthropic
+from config.config import (LLM_PROVIDER, DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL,
+                           DEEPSEEK_MODEL, OPENAI_API_KEY, OPENAI_MODEL,
+                           ANTHROPIC_API_KEY, ANTHROPIC_MODEL,
+                           GEMINI_API_KEY, GEMINI_MODEL, PERSONA_TEMPLATE)
 
 logger = logging.getLogger(__name__)
 
@@ -12,7 +16,61 @@ class PersonaGenerator:
 
     def __init__(self):
         self.client = None
-        self._initialize_deepseek()
+        self.provider = LLM_PROVIDER
+        self._initialize_llm()
+
+    def _initialize_llm(self):
+        if self.provider == 'openai':
+            self._initialize_openai()
+        elif self.provider == 'anthropic':
+            self._initialize_anthropic()
+        elif self.provider == 'gemini':
+            self._initialize_gemini()
+        else:
+            self._initialize_deepseek()
+
+    def _initialize_openai(self):
+        if not OPENAI_API_KEY:
+            logger.error("OpenAI API key not found. Please set "
+                         "OPENAI_API_KEY environment variable.")
+            return
+
+        try:
+            self.client = openai.OpenAI(api_key=OPENAI_API_KEY)
+            logger.info("OpenAI client initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize OpenAI client: {e}")
+
+    def _initialize_anthropic(self):
+        if not ANTHROPIC_API_KEY:
+            logger.error("Anthropic API key not found. Please set "
+                         "ANTHROPIC_API_KEY environment variable.")
+            return
+
+        try:
+            self.client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+            logger.info("Anthropic client initialized successfully")
+        except ImportError:
+            logger.error("Anthropic library not installed. "
+                         "Run: pip install anthropic")
+        except Exception as e:
+            logger.error(f"Failed to initialize Anthropic client: {e}")
+
+    def _initialize_gemini(self):
+        if not GEMINI_API_KEY:
+            logger.error("Gemini API key not found. Please set "
+                         "GEMINI_API_KEY environment variable.")
+            return
+
+        try:
+            genai.configure(api_key=GEMINI_API_KEY)
+            self.client = genai.GenerativeModel(GEMINI_MODEL)
+            logger.info("Gemini client initialized successfully")
+        except ImportError:
+            logger.error("Google Generative AI library not installed. "
+                         "Run: pip install google-generativeai")
+        except Exception as e:
+            logger.error(f"Failed to initialize Gemini client: {e}")
 
     def _initialize_deepseek(self):
         if not DEEPSEEK_API_KEY:
@@ -35,28 +93,68 @@ class PersonaGenerator:
         try:
             prompt = self._create_persona_prompt(llm_summary, processed_data)
 
-            response = self.client.chat.completions.create(
-                model=DEEPSEEK_MODEL,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": self._get_system_prompt()
-                    },
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ],
-                temperature=0.7,
-                max_tokens=2000,
-                stream=False
-            )
+            if self.provider == 'anthropic':
+                response_text = self._call_anthropic(prompt)
+            elif self.provider == 'gemini':
+                response_text = self._call_gemini(prompt)
+            else:
+                response_text = self._call_openai_compatible(prompt)
 
-            persona_text = response.choices[0].message.content
-            return self._parse_persona_response(persona_text, processed_data)
+            return self._parse_persona_response(response_text, processed_data)
 
         except Exception as e:
-            logger.error(f"DeepSeek failed: {e}")
+            logger.error(f"{self.provider.title()} failed: {e}")
+
+    def _call_openai_compatible(self, prompt: str) -> str:
+        model = OPENAI_MODEL if self.provider == 'openai' else DEEPSEEK_MODEL
+
+        response = self.client.chat.completions.create(
+            model=model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": self._get_system_prompt()
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            temperature=0.7,
+            max_tokens=2000,
+            stream=False
+        )
+
+        return response.choices[0].message.content
+
+    def _call_anthropic(self, prompt: str) -> str:
+        response = self.client.messages.create(
+            model=ANTHROPIC_MODEL,
+            max_tokens=2000,
+            temperature=0.7,
+            system=self._get_system_prompt(),
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        )
+
+        return response.content[0].text
+
+    def _call_gemini(self, prompt: str) -> str:
+        full_prompt = f"{self._get_system_prompt()}\n\n{prompt}"
+
+        response = self.client.generate_content(
+            full_prompt,
+            generation_config={
+                'temperature': 0.7,
+                'max_output_tokens': 2000,
+            }
+        )
+
+        return response.text
 
     def _get_system_prompt(self) -> str:
         return """You are an expert user researcher and psychologist """ \
@@ -187,7 +285,6 @@ Top Subreddits: {top_subreddits}
         return formatted_persona + analytics_summary
 
     def _format_citations(self, citations: List[Dict]) -> str:
-        """Format citations for display."""
         if not citations:
             return "No specific citations available."
 

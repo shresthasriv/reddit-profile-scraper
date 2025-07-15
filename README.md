@@ -16,13 +16,37 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Configure API Key
-Create a `.env` file in the project root:
+### 3. Configure API Keys
+Create a `.env` file in the project root with your preferred LLM provider:
+
+#### Option 1: DeepSeek (Default)
 ```bash
 DEEPSEEK_API_KEY=your_deepseek_api_key_here
 ```
 
-Get your DeepSeek API key from: https://platform.deepseek.com/
+#### Option 2: OpenAI
+```bash
+LLM_PROVIDER=openai
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+#### Option 3: Anthropic
+```bash
+LLM_PROVIDER=anthropic
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+```
+
+#### Option 4: Google Gemini
+```bash
+LLM_PROVIDER=gemini
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### API Key Sources
+- DeepSeek: https://platform.deepseek.com/
+- OpenAI: https://platform.openai.com/
+- Anthropic: https://console.anthropic.com/
+- Google Gemini: https://aistudio.google.com/
 
 ## Execution
 
@@ -58,5 +82,5 @@ The tool will:
 ## Requirements
 
 - Python 3.7+
-- DeepSeek API key
+- API key for one of: DeepSeek, OpenAI, Anthropic, or Google Gemini
 - Internet connection
